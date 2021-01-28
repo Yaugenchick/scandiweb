@@ -1,0 +1,53 @@
+{
+    "name": "scandiweb",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack --mode development",
+        "prod": "cross-env NODE_ENV=production webpack --mode production",
+        "start": "cross-env NODE_ENV=development webpack serve --inline --hot --mode development",
+        "server": "json-server --watch db.json --port 3004"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.10",
+        "@babel/preset-react": "^7.12.10",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-styled-components": "^1.12.0",
+        "cross-env": "^7.0.3",
+        "css-loader": "^5.0.1",
+        "eslint": "^7.16.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^4.5.0",
+        "image-minimizer-webpack-plugin": "^1.0.0",
+        "imagemin-gifsicle": "^7.0.0",
+        "imagemin-jpegtran": "^7.0.0",
+        "imagemin-optipng": "^8.0.0",
+        "imagemin-svgo": "^8.0.0",
+        "imagemin-webp": "^6.0.0",
+        "mini-css-extract-plugin": "^1.3.4",
+        "node-sass": "^5.0.0",
+        "prettier": "^2.2.1",
+        "sass-loader": "^10.1.1",
+        "style-loader": "^2.0.0",
+        "terser-webpack-plugin": "^5.0.3",
+        "webpack": "^5.10.1",
+        "webpack-cli": "^4.2.0",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "dependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "styled-components": "^5.2.1",
+        "uuid": "^8.3.2"
+    }
+}
