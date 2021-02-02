@@ -88,14 +88,20 @@ Also, if you need to, you can disable animation.
 </YourCarousel>
 ```
 
-### All settings
-
 // add table and add in header file styles buttons with descriptions of dependensies
 // working install in npm yarn bit
 // working key words for promout company in world networks
 // working add LED for syntax
 
-### Default settings
+### All settings and default settings
 
-| options | name | type | default | descriptions |
-|**_|_**|**_|_**|
+| options         | type    | default                                                | descriptions                                                                    |
+| --------------- | ------- | ------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| dots            | boolean | true                                                   | if true initializes dots                                                        |
+| dotsTheme       | string  | "#ccc"                                                 | add style for dots                                                              |
+| activeDotsTheme | string  | "goldenrod"                                            | add style for active dot                                                        |
+| controls        | boolean | true                                                   | if true initializes controls buttons                                            |
+| buttonTheme     | string  | "goldenrod"                                            | add style buttons                                                               |
+| buttonIco       | object  | {<br>prew:"\u21E6",<br>next:"\u21E8",<br>size: 20<br>} | you can place a picture for a button, or a word, the default arrows are unicode |
+| animation       | boolean | true                                                   | if true initializes animation                                                   |
+| animationType   | string  | "translate"                                            | you can use animation type "translate" or "scale"                               |
