@@ -25,13 +25,15 @@ const Carousel = ({
     dots = true,
     controls = true,
     animation = true,
+    animationType = "translate",
     swiper = true,
     dotTheme = "gold",
     activeDotTheme = "ccc",
     buttonTheme = "blue",
     buttonIco = {
-        prew: () => "\u21E6",
-        next: () => "\u21E8"
+        prew: "\u21E6",
+        next: "\u21E8",
+        size: 50
     },
     url= '',
     children = [] || props.children 
@@ -44,9 +46,9 @@ const Carousel = ({
         setActiveIndex,
     } = useAvailableContent(controls)
     
-    let {data, setData} = useData({url, children})
-
-    let {controlsForAnimation, setControlsForAnimation} = useAnimation()
+    let { data } = useData({ children })
+    
+    let {controlsForAnimation, setControlsForAnimation, dotsIndex, setDotsIndex} = useAnimation()
 
     let [startPoint, setStartPoint] = useState({x:0})
     let [nowPoint, setNowPoint] = useState({})
@@ -63,12 +65,12 @@ const Carousel = ({
             if (currentPossition < 0) {
                 slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
                 setActiveIndex(slide)
-                
+                setControlsForAnimation({next: true, prew: false, dots: false})
             }
             if (currentPossition > 0) {
                 slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
                 setActiveIndex(slide)
-            
+                setControlsForAnimation({next: false, prew: true, dots: false})
             }
             setStartPoint(nowPoint.clientX)
         }
@@ -97,7 +99,11 @@ const Carousel = ({
         if(dots) {
             slide = index
             setActiveIndex(slide)
-            setControlsForAnimation({next: false, prew: false, dots: true, index: index})
+            setControlsForAnimation({next: false, prew: false, dots: true})
+            setDotsIndex(prew => ({
+                currentIndex: index,
+                prewIndex: prew.currentIndex
+            }))
         }
     }
 
@@ -107,7 +113,9 @@ const Carousel = ({
                 <EmbedContent
                     swiper={swiper}
                     animation={animation}
+                    animationType={animationType}
                     controlsForAnimation={controlsForAnimation}
+                    dotsIndex={dotsIndex}
                     data={data}
                     activeIndex={activeIndex}
                     isMobileTablet={isMobileTablet}

@@ -4,32 +4,28 @@
 		{
 			"id": 1,
 			"url": "./src/assets/minsk.jpg",
-			"type": "div",
-			"content": "garilas"
+			"width": 100,
+			"height": 400
 		},{
 			"id": 2,
 			"url": "./src/assets/sky.png",
-			"type": "div",
-			"content": "garilas"
-		
+			"width": 100,
+			"height": 400
 		},{
 			"id": 3,
 			"url": "./src/assets/sky2.png",
-			"type": "div",
-			"content": "bonobos"
-		
+			"width": 100,
+			"height": 400
 		},{
 			"id": 4,
 			"url": "./src/assets/sky3.png",
-			"type": "div",
-			"content": "arangutanas"
-		
+			"width": 100,
+			"height": 400
 		},{
 			"id": 5,
 			"url": "./src/assets/sky4.png",
-			"type": "div",
-			"content": "makakas"
-		
+			"width": 100,
+			"height": 400
 		}
 	]
 }

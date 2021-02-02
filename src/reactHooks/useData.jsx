@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
-export function useData ({url, children}) {
+export function useData({ children }) {
+	
 	const [data, setData] = useState([])
-	// сделать проверку какой тип данных приходит json object other $$Symbolreactelement
 
 	const loadingChild = (children) => {
 		let nodes = []
-		if(children.length > 0) {
+		if (children.length > 0) {
 			children.map((child) => {
-				let elem = React.createElement(child.type, {...child.props})
+				let elem = React.createElement(child.type, { ...child.props })
 				nodes.push(elem)
 			})
 		}
@@ -16,16 +16,10 @@ export function useData ({url, children}) {
 	}
 	useEffect(() => {
 
-		if(typeof(url) === "string" && url !== "") {
-			fetch(url)
-			.then(response => response.json())
-			.then(data => setData(() => data))
-			.catch(error => console.log(error))
-		} else {
-			let data = loadingChild(children)
-			setData(() => data)
-		}
-	
+		let data = loadingChild(children)
+		setData(() => data)
+
 	}, [])
-	return {data, setData}
+
+	return { data }
 }

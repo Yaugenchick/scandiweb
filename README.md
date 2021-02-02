@@ -40,9 +40,10 @@ The rest of the settings work by default for a good user experience, but you can
 	activeDotTheme={"your color"}
 	buttonTheme={"your color"}
 	buttonIco={{
-		prew: () => your ico,
-		next: () => your ico
-	}}
+			prew: //your image,
+			next: //your image,
+			size: //your image size (number)
+		}}
 >
 	//your elements with content
 </YourCarousel>
@@ -59,13 +60,33 @@ Also, if you need to, you can disable buttons, dots, or all together.
 </YourCarousel>
 ```
 
-If the carousel module has no children, you can pass an array of objects with the url address.
+You can customize different types of animation.
 
 ```
-<YourCarousel url={your data}/>
+<YourCarousel>
+	animation={true}
+	animationType={"translate"} or {"scale"}
+</YourCarousel>
 ```
 
----
+Also, if you need to, you can disable animation.
+
+```
+<YourCarousel>
+	animation={false}
+</YourCarousel>
+```
+
+##### !!! For animation, it is important that all content blocks are wrapped in a `<div> </div> ` element
+
+```
+<YourCarousel>
+	<div>Your example content </div>
+	<div>Your example content </div>
+	<div>Your example content </div>
+	<div>Your example content </div>
+</YourCarousel>
+```
 
 ### All settings
 
@@ -73,3 +94,8 @@ If the carousel module has no children, you can pass an array of objects with th
 // working install in npm yarn bit
 // working key words for promout company in world networks
 // working add LED for syntax
+
+### Default settings
+
+| options | name | type | default | descriptions |
+|**_|_**|**_|_**|
