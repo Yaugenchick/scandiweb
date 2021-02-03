@@ -7,7 +7,8 @@
 Fully customizable module for your project. Supports css, scss, styled-components, swipe-event, animations.
 
 It also reacts to the bandwidth of the Internet connection, which allows you to solve tasks such as turning off animations to eliminate the excessive use of the CPU resources of the user's device, which directly affects the speed and performance of your application.
-#####At the moment, this is experimental functionality, and by default not all browsers are supported, it will be available in the browser chrome, opera of the latest versions. To work in firefox, the dom.netinfo.enabled in true setting must be enabled in the user's about: config. IE does not support this functionality.
+
+##### At the moment, this is experimental functionality, and by default not all browsers are supported, it will be available in the browser chrome, opera of the latest versions. To work in firefox, the dom.netinfo.enabled in true setting must be enabled in the user's about: config. IE does not support this functionality.
 
 ---
 
