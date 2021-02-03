@@ -73,14 +73,6 @@ You can customize different types of animation.
 </YourCarousel>
 ```
 
-Also, if you need to, you can disable animation.
-
-```
-<YourCarousel>
-	animation={false}
-</YourCarousel>
-```
-
 ##### !!! For animation, it is important that all content blocks are wrapped in a `<div> </div> ` element
 
 ```
