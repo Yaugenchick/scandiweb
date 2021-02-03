@@ -16,7 +16,7 @@ const Dot = styled.div`
     height: 10px;
     border-radius: 50%;
     background: ${props => props.active ? props.activeDotTheme : props.dotTheme};
-    transform: ${props => props.active ? "scale(1.5)" : "scale(1)"};
+    transform: ${props => props.active ? "scale(1.4)" : "scale(1)"};
     margin: 0 2px;
 `
 
@@ -25,7 +25,7 @@ const Dots = ({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme}) =>
     const handleClick = (event, index) => {
         controlsSlider(event, index)
     }
-    const dots = data.map((item, index) => 
+    const dots = data.map((_ , index) => 
     (<Dot 
         active={activeIndex === index}
         dotTheme={dotTheme}

@@ -27,7 +27,7 @@ const Carousel = ({
     buttonIco = {
         prew: "\u21E6",
         next: "\u21E8",
-        size: 50
+        size: 20
     },
     children = [] || props.children
 }) => {
@@ -72,13 +72,15 @@ const Carousel = ({
     const controlsSliderWithButton = (event) => {
         let slide,
             next = event.target.className.startsWith("controls__ButtonNext"),
-            prew = event.target.className.startsWith("controls__ButtonPrew");
-
-        if (next) {
+            prew = event.target.className.startsWith("controls__ButtonPrew"),
+            nextImg = event.target.attributes.dataset.value.includes("next"), 
+            prewImg = event.target.attributes.dataset.value.includes("prew"); 
+        
+        if (next || nextImg) {
             slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: true, prew: false, dots: false }) : null
-        } else if (prew) {
+        } else if (prew || prewImg) {
             slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: false, prew: true, dots: false }) : null

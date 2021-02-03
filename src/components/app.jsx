@@ -20,7 +20,12 @@ const Func1 = () => <div style={{color: "red", padding: "50px", background: "gol
 const Func2 = () => <div style={{color: "green", padding: "50px", background: "#ededed"}}><img src={a3} width={WIDTH} height={HEIGHT} alt=""/> func2 func</div>
 const Func3 = () => <div style={{color: "gold", padding: "50px", background: "blue"}}><img src={a4} width={WIDTH} height={HEIGHT} alt=""/> func3 func</div>
 const Func4 = () => <div style={{color: "blue", padding: "50px", background: "green"}}><img src={a5} width={WIDTH} height={HEIGHT} alt=""/> func4 func</div>
-
+/*
+	buttonIco={{
+				prew: left,
+				next: right,
+				size: 20
+			}}*/
 const App = () => {
 
 	return (

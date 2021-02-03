@@ -1,5 +1,8 @@
+import { check } from 'prettier';
 import React from 'react';
 import styled from 'styled-components'
+import { ButtonIcoPrew } from './injectsButtonsIco';
+import { ButtonIcoNext } from './injectsButtonsIco';
 
 const WraperControlsButton = styled.div`
 	grid-row: 1/2;
@@ -25,40 +28,37 @@ const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, b
 	const handleClick = (event) => {
 		controlsSlider(event)
 	}
-	const next = () => {
-		let buttonNext = buttonIco.next,
-			size = buttonIco.size
-		if (/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonNext)) {
-			return React.createElement("img", { src: buttonNext, width: size, height: size, onClick: handleClick })
-		} else {
-
-			return buttonNext
-		}
-	}
-	const prew = () => {
-		let buttonPrew = buttonIco.prew,
-			size = buttonIco.size
-		if (/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonPrew)) {
-			return <img src={buttonPrew} width={size} height={size} />
-		} else {
-			return buttonPrew
-		}
-	}
+	const {next, prew} = buttonIco
+	const checkNext = /\.(jpg|jpeg|png|gif|svg|webp|heic|heif)$/.test(next)
+	const checkPrew = /\.(jpg|jpeg|png|gif|svg|webp|heic|heif)$/.test(prew)
+	
 	return (
 		<WraperControlsButton>
 			<ButtonPrew
 				onClick={handleClick}
 				ref={refButtonPrew}
 				buttonTheme={buttonTheme}
-			>
-				{prew()}
+			>	
+			{checkPrew &&
+			<ButtonIcoPrew
+				controlsSlider={controlsSlider}
+				buttonIco={buttonIco}
+			/> 
+			}
+			{!checkPrew && prew}
 			</ButtonPrew>
 			<ButtonNext
 				onClick={handleClick}
 				ref={refButtonNext}
 				buttonTheme={buttonTheme}
 			>
-				{next()}
+			{checkNext &&
+			<ButtonIcoNext
+				controlsSlider={controlsSlider}
+				buttonIco={buttonIco}
+			/> 
+			}
+			{!checkNext && next}
 			</ButtonNext>
 		</WraperControlsButton>
 	);
