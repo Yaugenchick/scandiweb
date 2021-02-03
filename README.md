@@ -107,5 +107,4 @@ Also, if you need to, you can disable animation.
 | controls        | boolean | true                                                   | if true initializes controls buttons                                            |
 | buttonTheme     | string  | "goldenrod"                                            | add style buttons                                                               |
 | buttonIco       | object  | {<br>prew:"\u21E6",<br>next:"\u21E8",<br>size: 20<br>} | you can place a picture for a button, or a word, the default arrows are unicode |
-| animation       | boolean | true                                                   | if true initializes animation                                                   |
-| animationType   | string  | "translate"                                            | you can use animation type "translate" or "scale"                               |
+| animationType   | string  | "translate"                                            | you can choose the type of animation , translate or scale                       |
