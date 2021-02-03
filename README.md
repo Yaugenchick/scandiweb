@@ -68,7 +68,6 @@ You can customize different types of animation.
 
 ```
 <YourCarousel>
-	animation={true}
 	animationType={"translate"} or {"scale"}
 </YourCarousel>
 ```
