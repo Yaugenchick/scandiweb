@@ -6,14 +6,16 @@ const Image = ({ data, activeIndex, controlsForAnimation, animationType, dotsInd
 
 	let voidContent = data.map((element, index) => (
 		index === activeIndex
-			? React.createElement(element.type, { key: element.key,
+			? React.createElement(element.type, {
+				key: element.key,
 				ref: animationRef,
-				...element.props })
+				...element.props
+			})
 			: null
 	))
 	animationApi.setAnimation(animationType, controlsForAnimation, animationRef, dotsIndex)
-	animationApi.getAnimation()			
-	
+	animationApi.getAnimation()
+
 	return (
 		<>
 			{voidContent}

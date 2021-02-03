@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { isMobileTablet } from './../reactHooks/isMobileTablet';
 import Image from './imageContent';
 
-
 const WraperEmbedContent = styled.div``
 
 const EmbedContent = ({
@@ -11,8 +10,6 @@ const EmbedContent = ({
     activeIndex,
     controlsStartTouch,
     controlsMoveTouch,
-    isMobileTablet,
-    swiper,
     controlsForAnimation,
     animationType,
     dotsIndex
@@ -21,7 +18,7 @@ const EmbedContent = ({
     let wraperEmbedRef = useRef()
 
     useEffect(() => {
-        if (!isMobileTablet() && !swiper) {
+        if (!isMobileTablet()) {
             return
         } else {
             wraperEmbedRef.current.addEventListener("onTouchStart", controlsStartTouch, false)
@@ -31,7 +28,7 @@ const EmbedContent = ({
             wraperEmbedRef.current.removeEventListener("onTouchStart", controlsStartTouch, false)
             wraperEmbedRef.current.removeEventListener("onTouchMove", controlsMoveTouch, false)
         })
-    }, [isMobileTablet(), swiper])
+    }, [isMobileTablet()])
 
     return (
         <WraperEmbedContent

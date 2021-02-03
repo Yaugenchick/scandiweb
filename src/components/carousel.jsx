@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Controls from './controls'
 import Dots from './dots'
 import EmbedContent from './embedContent'
@@ -10,23 +10,17 @@ import { useNavigator } from '../reactHooks/useNavigator'
 
 import styled from 'styled-components'
 
-
 const WraperControls = styled.div`
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 50% 50%;
     align-items: center;
 `
-/*
 
-*/
 const Carousel = ({
-    embed = true,
     dots = true,
     controls = true,
-    animation = true,
     animationType = "translate",
-    swiper = true,
     dotTheme = "gold",
     activeDotTheme = "ccc",
     buttonTheme = "blue",
@@ -35,8 +29,7 @@ const Carousel = ({
         next: "\u21E8",
         size: 50
     },
-    url= '',
-    children = [] || props.children 
+    children = [] || props.children
 }) => {
 
     let {
@@ -45,15 +38,15 @@ const Carousel = ({
         activeIndex,
         setActiveIndex,
     } = useAvailableContent(controls)
-    
-    let { data } = useData({ children })
-    
-    let {controlsForAnimation, setControlsForAnimation, dotsIndex, setDotsIndex} = useAnimation()
 
-    let [startPoint, setStartPoint] = useState({x:0})
+    let { data } = useData({ children })
+    let { networkStatusSpeed } = useNavigator()
+    let { controlsForAnimation, setControlsForAnimation, dotsIndex, setDotsIndex } = useAnimation()
+
+    let [startPoint, setStartPoint] = useState({ x: 0 })
     let [nowPoint, setNowPoint] = useState({})
-    let [currentPossition, setCurrentPossition] = useState({x:0})
-    useNavigator()
+    let [currentPossition, setCurrentPossition] = useState({ x: 0 })
+
     const controlsStartTouch = (event) => {
         setStartPoint(event.changedTouches[0].clientX)
     }
@@ -65,12 +58,12 @@ const Carousel = ({
             if (currentPossition < 0) {
                 slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
                 setActiveIndex(slide)
-                setControlsForAnimation({next: true, prew: false, dots: false})
+                networkStatusSpeed ? setControlsForAnimation({ next: true, prew: false, dots: false }) : null
             }
             if (currentPossition > 0) {
                 slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
                 setActiveIndex(slide)
-                setControlsForAnimation({next: false, prew: true, dots: false})
+                networkStatusSpeed ? setControlsForAnimation({ next: false, prew: true, dots: false }) : null
             }
             setStartPoint(nowPoint.clientX)
         }
@@ -81,14 +74,14 @@ const Carousel = ({
             next = event.target.className.startsWith("controls__ButtonNext"),
             prew = event.target.className.startsWith("controls__ButtonPrew");
 
-        if(next) {
+        if (next) {
             slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
             setActiveIndex(slide)
-            setControlsForAnimation({next: true, prew: false, dots: false})
+            networkStatusSpeed ? setControlsForAnimation({ next: true, prew: false, dots: false }) : null
         } else if (prew) {
             slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
             setActiveIndex(slide)
-            setControlsForAnimation({next: false, prew: true, dots: false})
+            networkStatusSpeed ? setControlsForAnimation({ next: false, prew: true, dots: false }) : null
         }
     }
 
@@ -96,54 +89,47 @@ const Carousel = ({
         let slide,
             dots = event.target.className.startsWith("dots__Dot");
 
-        if(dots) {
+        if (dots) {
             slide = index
             setActiveIndex(slide)
-            setControlsForAnimation({next: false, prew: false, dots: true})
-            setDotsIndex(prew => ({
+            networkStatusSpeed ? setControlsForAnimation({ next: false, prew: false, dots: true }) : null
+            networkStatusSpeed ? setDotsIndex(prew => ({
                 currentIndex: index,
                 prewIndex: prew.currentIndex
-            }))
+            })) : null
         }
     }
 
     return (
         <>
-            {embed && (
-                <EmbedContent
-                    swiper={swiper}
-                    animation={animation}
-                    animationType={animationType}
-                    controlsForAnimation={controlsForAnimation}
-                    dotsIndex={dotsIndex}
-                    data={data}
-                    activeIndex={activeIndex}
-                    isMobileTablet={isMobileTablet}
-                    controlsStartTouch={controlsStartTouch}
-                    controlsMoveTouch={controlsMoveTouch}
-                />
-            )}
+            <EmbedContent
+                animationType={animationType}
+                controlsForAnimation={controlsForAnimation}
+                dotsIndex={dotsIndex}
+                data={data}
+                activeIndex={activeIndex}
+                controlsStartTouch={controlsStartTouch}
+                controlsMoveTouch={controlsMoveTouch}
+            />
             <WraperControls>
-            {dots && (
-                <Dots
-                    controlsSlider={controlsSliderWithDots}
-                    data={data}
-                    activeIndex={activeIndex}
-                    dotTheme={dotTheme}
-                    activeDotTheme={activeDotTheme}
-                    
-                />
-            )}
-            {controls && (
-                <Controls
-                    controlsSlider={controlsSliderWithButton}
-                    refButtonPrew={refButtonPrew}
-                    refButtonNext={refButtonNext}
-                    buttonTheme={buttonTheme}
-                    buttonIco={buttonIco}
-                
-                />
-            )}
+                {dots && (
+                    <Dots
+                        controlsSlider={controlsSliderWithDots}
+                        data={data}
+                        activeIndex={activeIndex}
+                        dotTheme={dotTheme}
+                        activeDotTheme={activeDotTheme}
+                    />
+                )}
+                {controls && (
+                    <Controls
+                        controlsSlider={controlsSliderWithButton}
+                        refButtonPrew={refButtonPrew}
+                        refButtonNext={refButtonNext}
+                        buttonTheme={buttonTheme}
+                        buttonIco={buttonIco}
+                    />
+                )}
             </WraperControls>
         </>
     )

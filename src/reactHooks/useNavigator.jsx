@@ -1,7 +1,23 @@
-import React, {useState, useEffect, useReducer, useCallback, memo} from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const useNavigator = () => {
-	console.log(window.navigator)
-	let navigator = window.navigator.connection
-	const [navigatorOptions, setNavigatorOptions] = useState(navigator)
+
+	let effective = window.navigator.connection.effectiveType,
+		networkStatusSpeed;
+		
+	const [effectiveType, setEffectiveType] = useState()
+
+	useEffect(() => {
+		setEffectiveType(effective)
+	},[])
+	
+	if(effectiveType ===  "4g") {
+		networkStatusSpeed = true
+	} else if (effectiveType === "3g") {
+		networkStatusSpeed = false
+	} else if (effectiveType === "2g") {
+		networkStatusSpeed = false
+	}
+	
+	return { networkStatusSpeed }
 }

@@ -22,46 +22,45 @@ const ButtonNext = styled.div`
 `
 
 const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, buttonIco }) => {
-    const handleClick = (event) => {
+	const handleClick = (event) => {
 		controlsSlider(event)
 	}
 	const next = () => {
 		let buttonNext = buttonIco.next,
 			size = buttonIco.size
-
-		if(/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonNext)) {
-			return React.createElement("img", {src: buttonNext, width: size, height: size, onClick: handleClick})
+		if (/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonNext)) {
+			return React.createElement("img", { src: buttonNext, width: size, height: size, onClick: handleClick })
 		} else {
-		
+
 			return buttonNext
 		}
 	}
 	const prew = () => {
 		let buttonPrew = buttonIco.prew,
 			size = buttonIco.size
-		if(/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonPrew)) {
-			return <img src={buttonPrew} width={size} height={size}/>
+		if (/^jpg|jpeg|png|gif|svg|webp|heic|heif/.test(buttonPrew)) {
+			return <img src={buttonPrew} width={size} height={size} />
 		} else {
 			return buttonPrew
 		}
 	}
-    return (
-        <WraperControlsButton>
+	return (
+		<WraperControlsButton>
 			<ButtonPrew
-					onClick={handleClick}
-					ref={refButtonPrew}
-					buttonTheme={buttonTheme}
-					>
-						{prew()}
-            </ButtonPrew>
+				onClick={handleClick}
+				ref={refButtonPrew}
+				buttonTheme={buttonTheme}
+			>
+				{prew()}
+			</ButtonPrew>
 			<ButtonNext
-					onClick={handleClick}
-					ref={refButtonNext}
-					buttonTheme={buttonTheme}
-					>
-						{next()}
-            </ButtonNext>
-        </WraperControlsButton>
-    );
+				onClick={handleClick}
+				ref={refButtonNext}
+				buttonTheme={buttonTheme}
+			>
+				{next()}
+			</ButtonNext>
+		</WraperControlsButton>
+	);
 }
 export default Controls;

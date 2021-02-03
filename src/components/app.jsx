@@ -10,7 +10,7 @@ import right from './../img/right-arrow.svg';
 import next from './../img/next.png';
 import prew from './../img/back.png';
 
-let url = "http://localhost:3004/data"
+
 const WIDTH = 250
 const HEIGHT = 250
 const Func0 = () => <div style={{color: "blue", padding: "50px", backgroundColor: "#ccc"}}>
@@ -24,14 +24,10 @@ const Func4 = () => <div style={{color: "blue", padding: "50px", background: "gr
 const App = () => {
 
 	return (
-	
 		<Carousel
-			embed={true}
-			animation={true}
 			animationType={"translate"}
 			dots={true}
 			controls={true}
-			swiper={true}
 			dotTheme={"rgba(0, 0, 0, .5)"}
 			activeDotTheme={"goldenrod"}
 			buttonTheme={"goldenrod"}
@@ -61,37 +57,3 @@ const App = () => {
 	);
 }
 export default App;
-
-/*
-			<div >
-				<Func0/>
-			</div>
-			<span>
-				<Func1/>
-			</span>
-			<strong>
-				<Func2/>
-			</strong>
-			<div>
-				<Func3/>
-			</div>
-			<div>
-				<Func4/>
-			</div>
-			<div>
-				<Func1/>
-			</div>
-			<div>
-				<Func2/>
-			</div>
-			<div>
-				<Func3/>
-			</div>
-			<div>
-				<Func4/>
-			</div>
-			<div>
-				<Func2/>
-			</div>
-		
-*/
