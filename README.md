@@ -34,20 +34,13 @@ export default App
 
 ### Using descriptions
 
-You can customize the styles for dots, prew next buttons.
-Buttons support strings, jpg, jpeg, png, svg, webp, heic, heif formats, as well as Unicode mnemonic characters.
-The rest of the settings work by default for a good user experience, but you can turn them off if you like.
+You can add your own themes for buttons and dots.
 
 ```
 <YourCarousel
 	dotTheme={"your color"}
 	activeDotTheme={"your color"}
 	buttonTheme={"your color"}
-	buttonIco={{
-			prew: //your image or your path (relative),
-			next: //your image or your path (relative),
-			size: //your image size (number)
-		}}
 >
 	//your elements with content
 </YourCarousel>
@@ -90,12 +83,11 @@ You can customize different types of animation.
 
 ### All settings and default settings
 
-| options         | type    | default                                                | descriptions                                                                    |
-| --------------- | ------- | ------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| dots            | boolean | true                                                   | if true initializes dots                                                        |
-| dotsTheme       | string  | "#ccc"                                                 | add style for dots                                                              |
-| activeDotsTheme | string  | "goldenrod"                                            | add style for active dot                                                        |
-| controls        | boolean | true                                                   | if true initializes controls buttons                                            |
-| buttonTheme     | string  | "goldenrod"                                            | add style buttons                                                               |
-| buttonIco       | object  | {<br>prew:"\u21E6",<br>next:"\u21E8",<br>size: 20<br>} | you can place a picture for a button, or a word, the default arrows are unicode |
-| animationType   | string  | "translate"                                            | you can choose the type of animation , translate or scale                       |
+| options         | type    | default     | descriptions                                              |
+| --------------- | ------- | ----------- | --------------------------------------------------------- |
+| dots            | boolean | true        | if true initializes dots                                  |
+| dotsTheme       | string  | "#ccc"      | add style for dots                                        |
+| activeDotsTheme | string  | "goldenrod" | add style for active dot                                  |
+| controls        | boolean | true        | if true initializes controls buttons                      |
+| buttonTheme     | string  | "goldenrod" | add style buttons                                         |
+| animationType   | string  | "translate" | you can choose the type of animation , translate or scale |

@@ -37,11 +37,6 @@ const Carousel = React.memo(({
     dotTheme = "gold",
     activeDotTheme = "ccc",
     buttonTheme = "blue",
-    buttonIco = {
-        prew: "\u21E6",
-        next: "\u21E8",
-        size: 20
-    },
     children = [] || props.children
 }) => {
 
@@ -86,16 +81,14 @@ const Carousel = React.memo(({
 
         let slide,
             next = event.target.className.startsWith("controls__ButtonNext"),
-            prew = event.target.className.startsWith("controls__ButtonPrew"),
-            nextImg = event.target.id.includes("nextIco"),
-            prewImg = event.target.id.includes("prewIco");
-
-        if (next || nextImg) {
-            slide = activeIndex === data.length  ? activeIndex = 0 : activeIndex++;
+            prew = event.target.className.startsWith("controls__ButtonPrew");
+        
+        if (next) {
+            slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: true, prew: false, dots: false }) : null
-        } else if (prew || prewImg) {
-            slide = activeIndex === 0 ? activeIndex = data.length -1 : activeIndex--;
+        } else if (prew) {
+            slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: false, prew: true, dots: false }) : null
         }
@@ -145,7 +138,6 @@ const Carousel = React.memo(({
                             refButtonPrew={refButtonPrew}
                             refButtonNext={refButtonNext}
                             buttonTheme={buttonTheme}
-                            buttonIco={buttonIco}
                         />
                     )}
                 </WraperControls>

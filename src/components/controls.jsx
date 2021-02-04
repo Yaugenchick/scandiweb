@@ -1,8 +1,6 @@
 
 import React from 'react';
-import styled from 'styled-components'
-import { ButtonIcoPrew } from './injectsButtonsIco';
-import { ButtonIcoNext } from './injectsButtonsIco';
+import styled from 'styled-components';
 
 const WraperControlsButton = styled.div`
 	grid-row: 1/2;
@@ -24,14 +22,13 @@ const ButtonNext = styled.div`
 	margin: 0 0 0 10px;
 `
 
-const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, buttonIco }) => {
+const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme }) => {
 	const handleClick = (event) => {
 		controlsSlider(event)
 	}
-	const {next, prew} = buttonIco
-	const checkNext = /\.(jpg|jpeg|png|gif|svg|webp|heic|heif)$/.test(next)
-	const checkPrew = /\.(jpg|jpeg|png|gif|svg|webp|heic|heif)$/.test(prew)
-	
+	const prew = "\u21E6"
+	const next = "\u21E8"
+
 	return (
 		<WraperControlsButton>
 			<ButtonPrew
@@ -40,13 +37,7 @@ const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, but
 				buttonTheme={buttonTheme}
 				dataset="prewExe"
 			>	
-			{checkPrew &&
-			<ButtonIcoPrew
-				controlsSlider={controlsSlider}
-				buttonIco={buttonIco}
-			/> 
-			}
-			{!checkPrew && prew}
+			{prew}
 			</ButtonPrew>
 			<ButtonNext
 				onClick={handleClick}
@@ -54,13 +45,7 @@ const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, but
 				buttonTheme={buttonTheme}
 				dataset="nextExe"
 			>
-			{checkNext &&
-			<ButtonIcoNext
-				controlsSlider={controlsSlider}
-				buttonIco={buttonIco}
-			/> 
-			}
-			{!checkNext && next}
+			{next}
 			</ButtonNext>
 		</WraperControlsButton>
 	);
