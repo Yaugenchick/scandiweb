@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { isMobileTablet } from './../reactHooks/isMobileTablet';
 import Image from './imageContent';
 
-const WraperEmbedContent = styled.div``
+const WraperEmbedContent = styled.div`
+`
 
 const EmbedContent = ({
     data,

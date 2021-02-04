@@ -17,15 +17,12 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 const WraperApp = styled.div`
-    position: absolute;
     width: calc(100% - 12px);
-    height: 100%;
     overflow: hidden;
 `
 const WraperControls = styled.div`
-    position: relative;
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 50px;
     grid-template-columns: 50% 50%;
     align-items: center;
 `
@@ -130,6 +127,7 @@ const Carousel = React.memo(({
                             activeIndex={activeIndex}
                             dotTheme={dotTheme}
                             activeDotTheme={activeDotTheme}
+                            controls={controls}
                         />
                     )}
                     {controls && (
@@ -138,6 +136,7 @@ const Carousel = React.memo(({
                             refButtonPrew={refButtonPrew}
                             refButtonNext={refButtonNext}
                             buttonTheme={buttonTheme}
+                            dots={dots}
                         />
                     )}
                 </WraperControls>

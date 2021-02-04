@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const WraperControlsButton = styled.div`
 	grid-row: 1/2;
-	grid-column: 2/3;
+	grid-column: ${props => props.dots ? "2/3" : "1/3"};
 	justify-self: center;
 `
 const ButtonPrew = styled.div`
@@ -22,7 +22,8 @@ const ButtonNext = styled.div`
 	margin: 0 0 0 10px;
 `
 
-const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme }) => {
+const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, dots }) => {
+	
 	const handleClick = (event) => {
 		controlsSlider(event)
 	}
@@ -30,7 +31,9 @@ const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, but
 	const next = "\u21E8"
 
 	return (
-		<WraperControlsButton>
+		<WraperControlsButton
+		dots={dots}
+		>
 			<ButtonPrew
 				onClick={handleClick}
 				ref={refButtonPrew}

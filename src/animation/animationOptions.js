@@ -5,11 +5,11 @@ class animationApi {
                 animationRef.current.animate(
                     [
                         {
-                            transform: 'translate(100%)',
+                            transform: 'translateX(100%)',
                             opasity: 1,
                         },
                         {
-                            transform: 'translate(0%)',
+                            transform: 'translateX(0%)',
                             opasity: 0,
                         },
                     ],
@@ -25,11 +25,11 @@ class animationApi {
                 animationRef.current.animate(
                     [
                         {
-                            transform: 'translate(-100%)',
+                            transform: 'translateX(-100%)',
                             opasity: 1,
                         },
                         {
-                            transform: 'translate(0%)',
+                            transform: 'translateX(0%)',
                             opasity: 0,
                         },
                     ],
@@ -45,18 +45,18 @@ class animationApi {
                 animationRef.current.animate(
                     [
                         {
-                            transform: 'scale(0.5)',
+                            transform: 'scaleX(0)',
                             margin: '0 0 0 50%',
                             opasity: 1,
                         },
                         {
-                            transform: 'scale(1)',
+                            transform: 'scaleX(1)',
                             margin: '0',
                             opasity: 0,
                         },
                     ],
                     {
-                        delay: 2,
+                        delay: 3,
                         duration: 800,
                         iterations: 1,
                         easing: 'ease-in-out',
@@ -67,18 +67,18 @@ class animationApi {
                 animationRef.current.animate(
                     [
                         {
-                            transform: 'scale(0.5)',
+                            transform: 'scaleX(0)',
                             margin: '0 50% 0 0',
                             opasity: 1,
                         },
                         {
-                            transform: 'scale(1)',
+                            transform: 'scaleX(1)',
                             margin: '0',
                             opasity: 0,
                         },
                     ],
                     {
-                        delay: 2,
+                        delay: 3,
                         duration: 800,
                         iterations: 1,
                         easing: 'ease-in-out',
@@ -90,11 +90,11 @@ class animationApi {
                     animationRef.current.animate(
                         [
                             {
-                                transform: 'translate(100%)',
+                                transform: 'translateX(100%)',
                                 opasity: 1,
                             },
                             {
-                                transform: 'translate(0%)',
+                                transform: 'translateX(0%)',
                                 opasity: 0,
                             },
                         ],
@@ -110,11 +110,11 @@ class animationApi {
                     animationRef.current.animate(
                         [
                             {
-                                transform: 'translate(-100%)',
+                                transform: 'translateX(-100%)',
                                 opasity: 1,
                             },
                             {
-                                transform: 'translate(0%)',
+                                transform: 'translateX(0%)',
                                 opasity: 0,
                             },
                         ],
@@ -131,11 +131,11 @@ class animationApi {
                 animationRef.current.animate(
                     [
                         {
-                            transform: 'scale(0)',
+                            transform: 'scaleX(0)',
                             opasity: 1,
                         },
                         {
-                            transform: 'scale(1)',
+                            transform: 'scaleX(1)',
                             opasity: 0,
                         },
                     ],

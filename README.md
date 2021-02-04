@@ -83,11 +83,11 @@ You can customize different types of animation.
 
 ### All settings and default settings
 
-| options         | type    | default     | descriptions                                              |
-| --------------- | ------- | ----------- | --------------------------------------------------------- |
-| dots            | boolean | true        | if true initializes dots                                  |
-| dotsTheme       | string  | "#ccc"      | add style for dots                                        |
-| activeDotsTheme | string  | "goldenrod" | add style for active dot                                  |
-| controls        | boolean | true        | if true initializes controls buttons                      |
-| buttonTheme     | string  | "goldenrod" | add style buttons                                         |
-| animationType   | string  | "translate" | you can choose the type of animation , translate or scale |
+| options         | type    | default     | descriptions                                                  |
+| --------------- | ------- | ----------- | ------------------------------------------------------------- |
+| dots            | boolean | true        | if true initializes dots                                      |
+| dotsTheme       | string  | "#ccc"      | add style for dots                                            |
+| activeDotsTheme | string  | "goldenrod" | add style for active dot                                      |
+| controls        | boolean | true        | if true initializes controls buttons                          |
+| buttonTheme     | string  | "goldenrod" | add style buttons                                             |
+| animationType   | string  | "translate" | you can choose the type of animation , translate-X or scale-X |

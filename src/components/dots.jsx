@@ -3,11 +3,11 @@ import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components'
 
 const WraperDots = styled.div`
-    width: 100px;
+    max-width: 100px;
     height: 20px;
     overflow: hidden;
     grid-row: 1/2;
-    grid-column: 1/2;
+    grid-column: ${props => props.controls ? "1/2" : "1/3"};
     justify-self: center;
 `
 const Dot = styled.div`
@@ -21,11 +21,12 @@ const Dot = styled.div`
     cursor: pointer;
 `
 
-const Dots = React.memo(({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme}) => {
+const Dots = React.memo(({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme, controls}) => {
 
     const handleClick = (event, index) => {
         controlsSlider(event, index)
     }
+    // add visible active pagination
     const dots = data.map((_ , index) => 
     (<Dot 
         active={activeIndex === index}
@@ -34,7 +35,9 @@ const Dots = React.memo(({ controlsSlider, data, activeIndex, dotTheme, activeDo
         key={uuidv4()} 
         onClick={(event) => handleClick(event, index)}/>))
     return (
-        <WraperDots>
+        <WraperDots
+        controls={controls}
+        >
             {dots}
         </WraperDots>
     )
