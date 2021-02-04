@@ -18,9 +18,10 @@ const Dot = styled.div`
     background: ${props => props.active ? props.activeDotTheme : props.dotTheme};
     transform: ${props => props.active ? "scale(1.4)" : "scale(1)"};
     margin: 0 2px;
+    cursor: pointer;
 `
 
-const Dots = ({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme}) => {
+const Dots = React.memo(({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme}) => {
 
     const handleClick = (event, index) => {
         controlsSlider(event, index)
@@ -37,5 +38,5 @@ const Dots = ({ controlsSlider, data, activeIndex, dotTheme, activeDotTheme}) =>
             {dots}
         </WraperDots>
     )
-}
+})
 export default Dots

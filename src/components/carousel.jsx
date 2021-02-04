@@ -8,16 +8,29 @@ import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useAnimation } from '../reactHooks/useAnimation'
 import { useNavigator } from '../reactHooks/useNavigator'
 
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
+const GlobalStyle = createGlobalStyle`
+    body {
+        margin: 0;
+        padding: 0;
+    }
+`
+const WraperApp = styled.div`
+    position: absolute;
+    width: calc(100% - 12px);
+    height: 100%;
+    overflow: hidden;
+`
 const WraperControls = styled.div`
+    position: relative;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 50% 50%;
     align-items: center;
 `
 
-const Carousel = ({
+const Carousel = React.memo(({
     dots = true,
     controls = true,
     animationType = "translate",
@@ -70,18 +83,19 @@ const Carousel = ({
     }
 
     const controlsSliderWithButton = (event) => {
+
         let slide,
             next = event.target.className.startsWith("controls__ButtonNext"),
             prew = event.target.className.startsWith("controls__ButtonPrew"),
-            nextImg = event.target.attributes.dataset.value.includes("next"), 
-            prewImg = event.target.attributes.dataset.value.includes("prew"); 
-        
+            nextImg = event.target.id.includes("nextIco"),
+            prewImg = event.target.id.includes("prewIco");
+
         if (next || nextImg) {
-            slide = activeIndex === data.length - 1 ? activeIndex = 0 : ++activeIndex;
+            slide = activeIndex === data.length  ? activeIndex = 0 : activeIndex++;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: true, prew: false, dots: false }) : null
         } else if (prew || prewImg) {
-            slide = activeIndex === 0 ? activeIndex = data.length - 1 : --activeIndex;
+            slide = activeIndex === 0 ? activeIndex = data.length -1 : activeIndex--;
             setActiveIndex(slide)
             networkStatusSpeed ? setControlsForAnimation({ next: false, prew: true, dots: false }) : null
         }
@@ -104,36 +118,39 @@ const Carousel = ({
 
     return (
         <>
-            <EmbedContent
-                animationType={animationType}
-                controlsForAnimation={controlsForAnimation}
-                dotsIndex={dotsIndex}
-                data={data}
-                activeIndex={activeIndex}
-                controlsStartTouch={controlsStartTouch}
-                controlsMoveTouch={controlsMoveTouch}
-            />
-            <WraperControls>
-                {dots && (
-                    <Dots
-                        controlsSlider={controlsSliderWithDots}
-                        data={data}
-                        activeIndex={activeIndex}
-                        dotTheme={dotTheme}
-                        activeDotTheme={activeDotTheme}
-                    />
-                )}
-                {controls && (
-                    <Controls
-                        controlsSlider={controlsSliderWithButton}
-                        refButtonPrew={refButtonPrew}
-                        refButtonNext={refButtonNext}
-                        buttonTheme={buttonTheme}
-                        buttonIco={buttonIco}
-                    />
-                )}
-            </WraperControls>
+            <GlobalStyle />
+            <WraperApp>
+                <EmbedContent
+                    animationType={animationType}
+                    controlsForAnimation={controlsForAnimation}
+                    dotsIndex={dotsIndex}
+                    data={data}
+                    activeIndex={activeIndex}
+                    controlsStartTouch={controlsStartTouch}
+                    controlsMoveTouch={controlsMoveTouch}
+                />
+                <WraperControls>
+                    {dots && (
+                        <Dots
+                            controlsSlider={controlsSliderWithDots}
+                            data={data}
+                            activeIndex={activeIndex}
+                            dotTheme={dotTheme}
+                            activeDotTheme={activeDotTheme}
+                        />
+                    )}
+                    {controls && (
+                        <Controls
+                            controlsSlider={controlsSliderWithButton}
+                            refButtonPrew={refButtonPrew}
+                            refButtonNext={refButtonNext}
+                            buttonTheme={buttonTheme}
+                            buttonIco={buttonIco}
+                        />
+                    )}
+                </WraperControls>
+            </WraperApp>
         </>
     )
-}
+})
 export default Carousel

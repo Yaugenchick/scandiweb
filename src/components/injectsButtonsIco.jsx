@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ButtonIcoPrew = ({controlsSlider, buttonIco}) => {
+export const ButtonIcoPrew = React.memo(({controlsSlider, buttonIco}) => {
 	const {prew, size} = buttonIco
 	const handleClick = (event) => {
 		controlsSlider(event)
@@ -11,12 +11,12 @@ export const ButtonIcoPrew = ({controlsSlider, buttonIco}) => {
 		width={size}
 		height={size}
 		onClick={handleClick}
-		dataset="prew"
+		id="prewIco"
 		/>
 	)
-}
+})
 
-export const ButtonIcoNext = ({controlsSlider, buttonIco}) => {
+export const ButtonIcoNext = React.memo(({controlsSlider, buttonIco}) => {
 	const {next, size} = buttonIco
 	const handleClick = (event) => {
 		controlsSlider(event)
@@ -27,8 +27,8 @@ export const ButtonIcoNext = ({controlsSlider, buttonIco}) => {
 		width={size}
 		height={size}
 		onClick={handleClick}
-		dataset="next"
+		id="nextIco"
 		/>
 	)
-}
+})
 

@@ -21,11 +21,17 @@ const Func2 = () => <div style={{color: "green", padding: "50px", background: "#
 const Func3 = () => <div style={{color: "gold", padding: "50px", background: "blue"}}><img src={a4} width={WIDTH} height={HEIGHT} alt=""/> func3 func</div>
 const Func4 = () => <div style={{color: "blue", padding: "50px", background: "green"}}><img src={a5} width={WIDTH} height={HEIGHT} alt=""/> func4 func</div>
 /*
-	buttonIco={{
+think about optimization app use usecallback usememo or React.memo
+think about compress files and code
+img compress ???
+js emited 160 kib minimized 10.1kib first
+js emited 656 kib minimized 13.1kib last
+		buttonIco={{
 				prew: left,
 				next: right,
 				size: 20
-			}}*/
+			}}
+*/
 const App = () => {
 
 	return (

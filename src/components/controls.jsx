@@ -1,4 +1,4 @@
-import { check } from 'prettier';
+
 import React from 'react';
 import styled from 'styled-components'
 import { ButtonIcoPrew } from './injectsButtonsIco';
@@ -24,7 +24,7 @@ const ButtonNext = styled.div`
 	margin: 0 0 0 10px;
 `
 
-const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, buttonIco }) => {
+const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, buttonIco }) => {
 	const handleClick = (event) => {
 		controlsSlider(event)
 	}
@@ -38,6 +38,7 @@ const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, b
 				onClick={handleClick}
 				ref={refButtonPrew}
 				buttonTheme={buttonTheme}
+				dataset="prewExe"
 			>	
 			{checkPrew &&
 			<ButtonIcoPrew
@@ -51,6 +52,7 @@ const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, b
 				onClick={handleClick}
 				ref={refButtonNext}
 				buttonTheme={buttonTheme}
+				dataset="nextExe"
 			>
 			{checkNext &&
 			<ButtonIcoNext
@@ -62,5 +64,5 @@ const Controls = ({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, b
 			</ButtonNext>
 		</WraperControlsButton>
 	);
-}
+})
 export default Controls;
