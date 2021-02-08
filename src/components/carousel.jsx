@@ -7,8 +7,10 @@ import { useAvailableContent } from './../reactHooks/useAvailableContent'
 import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useAnimation } from '../reactHooks/useAnimation'
 import { useNavigator } from '../reactHooks/useNavigator'
+import usePaginationForDots from './../reactHooks/usePaginationForDots';
 
 import styled, { createGlobalStyle } from 'styled-components'
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -17,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 const WraperApp = styled.div`
-    width: calc(100% - 12px);
+    width: 100%;
     overflow: hidden;
 `
 const WraperControls = styled.div`
@@ -45,6 +47,8 @@ const Carousel = React.memo(({
     } = useAvailableContent(controls)
 
     let { data } = useData({ children })
+    let { currentDots } = usePaginationForDots({data, activeIndex})
+    //console.log(currentDots, tempcurrentDots)
     let { networkStatusSpeed } = useNavigator()
     let { controlsForAnimation, setControlsForAnimation, dotsIndex, setDotsIndex } = useAnimation()
 
@@ -122,6 +126,7 @@ const Carousel = React.memo(({
                 <WraperControls>
                     {dots && (
                         <Dots
+                            currentDots={currentDots}
                             controlsSlider={controlsSliderWithDots}
                             data={data}
                             activeIndex={activeIndex}

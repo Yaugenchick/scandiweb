@@ -6,8 +6,8 @@ import a3 from './../assets/sky2.png';
 import a4 from './../assets/sky3.png';
 import a5 from './../assets/sky4.png';
 
-const WIDTH = 150
-const HEIGHT = 250
+const WIDTH = 650
+const HEIGHT = 200
 const Func0 = () => <div style={{ height: "200px", fontSize: "20px" ,color: "blue", padding: "50px", background: "#ccc"}}>
 	<img src={a1} width={WIDTH} height={HEIGHT}  alt=""/>
 	func1 func</div>
@@ -29,7 +29,7 @@ const App = () => {
 		<Carousel
 			animationType={"scale"}
 			dots={true}
-			controls={false}
+			controls={true}
 			dotTheme={"rgba(0, 0, 0, .5)"}
 			activeDotTheme={"goldenrod"}
 			buttonTheme={"goldenrod"}
@@ -47,7 +47,19 @@ const App = () => {
 				<Func3/>
 			</div>
 			<div>
-				<Func4/>
+				<Func2/>
+			</div>
+			<div>
+				<Func3/>
+			</div>
+			<div >
+				<Func0/>
+			</div>
+			<div>
+				<Func1/>
+			</div>
+			<div>
+				<Func2/>
 			</div>
 			<div >
 				<Func0/>
@@ -62,7 +74,10 @@ const App = () => {
 				<Func3/>
 			</div>
 			<div>
-				<Func4/>
+				<Func2/>
+			</div>
+			<div>
+				<Func3/>
 			</div>
 			<div >
 				<Func0/>
@@ -72,12 +87,6 @@ const App = () => {
 			</div>
 			<div>
 				<Func2/>
-			</div>
-			<div>
-				<Func3/>
-			</div>
-			<div>
-				<Func4/>
 			</div>
 		</Carousel>
 	
