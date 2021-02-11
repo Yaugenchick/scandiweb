@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
+
 import Controls from './controls'
 import Dots from './dots'
 import EmbedContent from './embedContent'
+import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useData } from '../reactHooks/useData'
 import { useAvailableContent } from './../reactHooks/useAvailableContent'
-import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useAnimation } from '../reactHooks/useAnimation'
 import { useNavigator } from '../reactHooks/useNavigator'
-import usePaginationForDots from './../reactHooks/usePaginationForDots';
-
-import styled, { createGlobalStyle } from 'styled-components'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -27,16 +26,17 @@ const WraperControls = styled.div`
     grid-template-rows: 50px;
     grid-template-columns: 50% 50%;
     align-items: center;
+    justify-items: center;
 `
 
 const Carousel = React.memo(({
     dots = true,
     controls = true,
     animationType = "translate",
-    dotTheme = "gold",
-    activeDotTheme = "ccc",
-    buttonTheme = "blue",
-    children = [] || props.children
+    dotTheme = "#ededed",
+    activeDotTheme = "rgb(140, 162, 255)",
+    buttonsTheme = "rgb(140, 162, 255)",
+    children = [] || props.children,
 }) => {
 
     let {
@@ -47,8 +47,7 @@ const Carousel = React.memo(({
     } = useAvailableContent(controls)
 
     let { data } = useData({ children })
-    let { currentDots } = usePaginationForDots({data, activeIndex})
-    //console.log(currentDots, tempcurrentDots)
+
     let { networkStatusSpeed } = useNavigator()
     let { controlsForAnimation, setControlsForAnimation, dotsIndex, setDotsIndex } = useAnimation()
 
@@ -126,7 +125,6 @@ const Carousel = React.memo(({
                 <WraperControls>
                     {dots && (
                         <Dots
-                            currentDots={currentDots}
                             controlsSlider={controlsSliderWithDots}
                             data={data}
                             activeIndex={activeIndex}
@@ -140,7 +138,7 @@ const Carousel = React.memo(({
                             controlsSlider={controlsSliderWithButton}
                             refButtonPrew={refButtonPrew}
                             refButtonNext={refButtonNext}
-                            buttonTheme={buttonTheme}
+                            buttonsTheme={buttonsTheme}
                             dots={dots}
                         />
                     )}

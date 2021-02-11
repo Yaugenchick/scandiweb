@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+
 import { isMobileTablet } from './../reactHooks/isMobileTablet';
 import Image from './imageContent';
 
 const WraperEmbedContent = styled.div`
+    position: relative;
 `
 
 const EmbedContent = ({
@@ -16,7 +18,8 @@ const EmbedContent = ({
     dotsIndex
 }) => {
 
-    let wraperEmbedRef = useRef()
+    let wraperEmbedRef = useRef(),
+    length = data.length
 
     useEffect(() => {
         if (!isMobileTablet()) {
@@ -36,7 +39,7 @@ const EmbedContent = ({
             ref={wraperEmbedRef}
             onTouchStart={controlsStartTouch}
             onTouchMove={controlsMoveTouch}
-        >   
+        >       
                 <Image
                     data={data}
                     activeIndex={activeIndex}

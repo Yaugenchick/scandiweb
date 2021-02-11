@@ -4,7 +4,9 @@
 
 ### Descriptions
 
-Fully customizable module for your project. Supports css, scss, styled-components, swipe-event, animations.
+A custom carousel component for your project. Supports css, scss, styled-components. To control slides, you can use buttons (prew, next), navigation points (dots), swipes. You can use them all together, or separately. Swipes will be enabled automatically if the device belongs to touch devices, if it is a mobile device, if it is a tablet.
+
+There is support for choosing the type of animation (2 types), support for themes for controls.
 
 It also reacts to the bandwidth of the Internet connection, which allows you to solve tasks such as turning off animations to eliminate the excessive use of the CPU resources of the user's device, which directly affects the speed and performance of your application.
 

@@ -4,25 +4,26 @@ import styled from 'styled-components';
 
 const WraperControlsButton = styled.div`
 	grid-row: 1/2;
-	grid-column: ${props => props.dots ? "2/3" : "1/3"};
-	justify-self: center;
+	grid-column: ${({ dots }) => dots ? "2/3" : "1/3"};
 `
 const ButtonPrew = styled.div`
-	color: ${props => props.buttonTheme};
+	color: ${({ buttonsTheme }) => buttonsTheme};
 	font-size: 30px;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 10px 0 0;
+	border: none;
 `
 const ButtonNext = styled.div`
-	color: ${props => props.buttonTheme};
+	color: ${({ buttonsTheme }) => buttonsTheme};
 	font-size: 30px;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 0 0 10px;
+	border: none;
 `
 
-const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonTheme, dots }) => {
+const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, buttonsTheme, dots }) => {
 	
 	const handleClick = (event) => {
 		controlsSlider(event)
@@ -37,16 +38,14 @@ const Controls = React.memo(({ controlsSlider, refButtonPrew, refButtonNext, but
 			<ButtonPrew
 				onClick={handleClick}
 				ref={refButtonPrew}
-				buttonTheme={buttonTheme}
-				dataset="prewExe"
+				buttonsTheme={buttonsTheme}
 			>	
 			{prew}
 			</ButtonPrew>
 			<ButtonNext
 				onClick={handleClick}
 				ref={refButtonNext}
-				buttonTheme={buttonTheme}
-				dataset="nextExe"
+				buttonsTheme={buttonsTheme}
 			>
 			{next}
 			</ButtonNext>
