@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import animationApi from "../animation/animationOptions"
 
-const Image = ({ data, activeIndex, controlsForAnimation, animationType, dotsIndex }) => {
+const SlideContainer = ({ data, activeIndex, controlsForAnimation, animationType, dotsIndex }) => {
 	let animationRef = useRef(null)
 
 	let voidContent = data.map((element, index) => (
@@ -22,4 +22,4 @@ const Image = ({ data, activeIndex, controlsForAnimation, animationType, dotsInd
 		</>
 	)
 }
-export default Image
+export default SlideContainer

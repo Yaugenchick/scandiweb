@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
 export function useData({ children }) {
-	
 	const [data, setData] = useState([])
 
 	const loadingChild = (children) => {

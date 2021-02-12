@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { isMobileTablet } from './../reactHooks/isMobileTablet';
-import Image from './imageContent';
+import SlideContainer from './SlideContainer';
 
 const WraperEmbedContent = styled.div`
     position: relative;
 `
 
-const EmbedContent = ({
+const EmbedContentContainer = ({
     data,
     activeIndex,
     controlsStartTouch,
@@ -18,9 +18,8 @@ const EmbedContent = ({
     dotsIndex
 }) => {
 
-    let wraperEmbedRef = useRef(),
-    length = data.length
-
+    let wraperEmbedRef = useRef()
+    
     useEffect(() => {
         if (!isMobileTablet()) {
             return
@@ -40,7 +39,7 @@ const EmbedContent = ({
             onTouchStart={controlsStartTouch}
             onTouchMove={controlsMoveTouch}
         >       
-                <Image
+                <SlideContainer
                     data={data}
                     activeIndex={activeIndex}
                     controlsForAnimation={controlsForAnimation}
@@ -50,4 +49,4 @@ const EmbedContent = ({
         </WraperEmbedContent>
     );
 }
-export default EmbedContent
+export default EmbedContentContainer

@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import Controls from './controls'
 import Dots from './dots'
-import EmbedContent from './embedContent'
+import EmbedContentContainer from './embedContent'
 import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useData } from '../reactHooks/useData'
 import { useAvailableContent } from './../reactHooks/useAvailableContent'
@@ -113,7 +113,7 @@ const Carousel = React.memo(({
         <>
             <GlobalStyle />
             <WraperApp>
-                <EmbedContent
+                <EmbedContentContainer
                     animationType={animationType}
                     controlsForAnimation={controlsForAnimation}
                     dotsIndex={dotsIndex}

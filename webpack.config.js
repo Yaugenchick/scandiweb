@@ -4,11 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const gifsicle = require('imagemin-gifsicle') // ??
-const jpegtran = require('imagemin-jpegtran') // ??
-const optipng = require('imagemin-optipng') // ??
-const svgo = require('imagemin-svgo') // ??
-const webp = require('imagemin-webp') // ??
+const gifsicle = require('imagemin-gifsicle')
+const jpegtran = require('imagemin-jpegtran')
+const optipng = require('imagemin-optipng')
+const svgo = require('imagemin-svgo')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -71,7 +70,6 @@ const optimization = () => {
 }
 module.exports = {
     mode: 'development',
-    //context: path.resolve(__dirname, "src"),
     entry: ['./index.js'],
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -79,7 +77,6 @@ module.exports = {
         publicPath: '',
     },
     devServer: {
-        //contentBase: path.resolve(__dirname, "build"), // ?
         hot: isDev,
         open: true,
         compress: true,
