@@ -105,6 +105,8 @@ Also, if you need to, you can disable buttons, dots, or all together.
 </YourCarousel>
 ```
 
+##### You can use multiple instances of a component in your project, with different settings, for a better user experience and design
+
 ### All settings and default settings
 
 | options         | type    | default              | descriptions                                                  |

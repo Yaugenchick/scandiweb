@@ -15,7 +15,10 @@
         "support dots",
         "small size",
         "for slow networks",
-        "for fast networks"
+        "for fast networks",
+        "ui",
+        "ux",
+        "multiplay"
     ],
     "main": "index.js",
     "private": true,
