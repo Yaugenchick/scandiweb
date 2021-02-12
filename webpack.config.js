@@ -10,6 +10,8 @@ const optipng = require('imagemin-optipng')
 const svgo = require('imagemin-svgo')
 const CompressWebpackPlugin = require('compression-webpack-plugin')
 const zlib = require('zlib')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -50,18 +52,7 @@ const plugins = () => {
                     ],
                 },
             }),
-            new CompressWebpackPlugin({
-                filename: '[path][base].br',
-                algorithm: 'brotliCompress',
-                test: /\.(js|css|html|svg)$/,
-                compressionOptions: {
-                    params: {
-                        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
-                    },
-                },
-                threshold: 10240,
-                minRatio: 0.8,
-            })
+            new BundleAnalyzerPlugin({})
         )
     }
     return basePlugins
@@ -77,6 +68,18 @@ const optimization = () => {
         configObject.minimizer = [
             new TerserPlugin({
                 parallel: true,
+            }),
+            new CompressWebpackPlugin({
+                filename: '[path][base].br',
+                algorithm: 'brotliCompress',
+                test: /\.(js|css|html|svg)$/,
+                compressionOptions: {
+                    params: {
+                        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+                    },
+                },
+                threshold: 10240,
+                minRatio: 0.8,
             }),
         ]
     }

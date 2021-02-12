@@ -1,6 +1,7 @@
 ## Infinite carousel component for e-commerce with react
 
-![size package](https://img.shields.io/static/v1?label=<size>&message=<14.8KiB>&color=brightgreen)
+![minify-size](https://img.shields.io/static/v1?label=<minify-size>&message=<14.79KB>&color=brightgreen)
+![gzip-size](https://img.shields.io/static/v1?label=<gzip-size>&message=<4.9KB>&color=brightgreen)
 ![dependencies react](https://img.shields.io/static/v1?label=<react>&message=<17.0.1>&color=blue)
 ![dependencies react-dom](https://img.shields.io/static/v1?label=<react-dom>&message=<17.0.1>&color=blue)
 ![dependencies styled-components](https://img.shields.io/static/v1?label=<styled-components>&message=<5.2.1>&color=yellow)
