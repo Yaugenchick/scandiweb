@@ -8,7 +8,7 @@
 ![license](https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=green)
 ![version node](https://img.shields.io/static/v1?label=<node>&message=<12.18.4>&color=brightgreen)
 ![version npm](https://img.shields.io/static/v1?label=<npm>&message=<6.14.6>&color=red)
-![version webpack](https://img.shields.io/static/v1?label=<webpack>&message=<5.10.1>&color=blue)
+![version webpack](https://img.shields.io/static/v1?label=<webpack>&message=<5.21.2>&color=blue)
 
 ### Descriptions
 
