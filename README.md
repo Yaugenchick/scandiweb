@@ -1,6 +1,14 @@
-## Carousel for e-commerce with react
+## Infinite carousel component for e-commerce with react
 
----
+![size package](https://img.shields.io/static/v1?label=<size>&message=<13.1Kib>&color=brightgreen)
+![dependencies react](https://img.shields.io/static/v1?label=<react>&message=<17.0.1>&color=blue)
+![dependencies react-dom](https://img.shields.io/static/v1?label=<react-dom>&message=<17.0.1>&color=blue)
+![dependencies styled-components](https://img.shields.io/static/v1?label=<styled-components>&message=<5.2.1>&color=yellow)
+![dependencies uuid](https://img.shields.io/static/v1?label=<uuid>&message=<8.3.2>&color=orange)
+![license](https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=green)
+![version node](https://img.shields.io/static/v1?label=<node>&message=<12.18.4>&color=brightgreen)
+![version npm](https://img.shields.io/static/v1?label=<npm>&message=<6.14.6>&color=red)
+![version webpack](https://img.shields.io/static/v1?label=<webpack>&message=<5.10.1>&color=blue)
 
 ### Descriptions
 
@@ -59,7 +67,25 @@ Also, if you need to, you can disable buttons, dots, or all together.
 </YourCarousel>
 ```
 
-You can customize different types of animation.
+##### With buttons and dots
+
+![with buttons and dots](./imageForReadme/withDotsAndButtons.jpg)
+
+##### With buttons
+
+![with buttons](./imageForReadme/withButtons.jpg)
+
+##### With dots
+
+![with dots](./imageForReadme/withDots.jpg)
+
+##### With swipe for device with sensor screen (mobile or tablet)
+
+##### Together with swipes, you can add control , dots or buttons
+
+![for sensor screen](./imageForReadme/withSensorScreen.jpg)
+
+##### You can customize different types of animation
 
 ```
 <YourCarousel>
@@ -78,18 +104,13 @@ You can customize different types of animation.
 </YourCarousel>
 ```
 
-// add table and add in header file styles buttons with descriptions of dependensies
-// working install in npm yarn bit
-// working key words for promout company in world networks
-// working add LED for syntax
-
 ### All settings and default settings
 
-| options         | type    | default     | descriptions                                                  |
-| --------------- | ------- | ----------- | ------------------------------------------------------------- |
-| dots            | boolean | true        | if true initializes dots                                      |
-| dotsTheme       | string  | "#ccc"      | add style for dots                                            |
-| activeDotsTheme | string  | "goldenrod" | add style for active dot                                      |
-| controls        | boolean | true        | if true initializes controls buttons                          |
-| buttonTheme     | string  | "goldenrod" | add style buttons                                             |
-| animationType   | string  | "translate" | you can choose the type of animation , translate-X or scale-X |
+| options         | type    | default              | descriptions                                                  |
+| --------------- | ------- | -------------------- | ------------------------------------------------------------- |
+| dots            | boolean | true                 | if true initializes dots                                      |
+| dotsTheme       | string  | "#ededed"            | add style for dots                                            |
+| activeDotsTheme | string  | "rgb(140, 162, 255)" | add style for active dot                                      |
+| controls        | boolean | true                 | if true initializes controls buttons                          |
+| buttonTheme     | string  | "rgb(140, 162, 255)" | add style buttons                                             |
+| animationType   | string  | "translate"          | you can choose the type of animation , translate-X or scale-X |

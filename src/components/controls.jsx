@@ -9,6 +9,7 @@ const WraperControlsButton = styled.div`
 const ButtonPrew = styled.div`
 	color: ${({ buttonsTheme }) => buttonsTheme};
 	font-size: 30px;
+	font-weight: bold;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 10px 0 0;
@@ -17,6 +18,7 @@ const ButtonPrew = styled.div`
 const ButtonNext = styled.div`
 	color: ${({ buttonsTheme }) => buttonsTheme};
 	font-size: 30px;
+	font-weight: bold;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 0 0 10px;

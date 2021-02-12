@@ -59,10 +59,37 @@ const Func4 = () => {
 	);
 }
 
-
-
 const App = () => {
 
+	const forSecondCarousel = dataForCarousel.map((item, _) => (
+		<div key={item.id} 
+		style={{
+		position: "relative",
+		height: "400px",
+		backgroundImage: `url(${item.url})`, 
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "cover",
+		backgroundPosition: 0}}>
+			<div style={{
+				position: "absolute",
+				top: 30,
+				left: 200,
+				color: "#fff"
+			}}>
+				<h1>Some Header</h1>
+			</div>
+			<div style={{
+				position: "absolute",
+				top: 100,
+				left: 200
+			}}>Some text</div>
+			<button style={{
+				position: "absolute",
+				bottom: 50,
+				right: 50}}
+			>add your basket</button>
+			</div>
+		))
 	return (
 		<>
 		<Carousel
@@ -85,38 +112,12 @@ const App = () => {
 		</Carousel>
 		<SecondCarousel
 			animationType={"scale"}
+			controls={false}
 			dotTheme={"rgb(100,25,55)"}
 			activeDotTheme={"goldenrod"}
 			buttonsTheme={"goldenrod"}
 		>
-			{dataForCarousel.map((item, _) => (
-			<div key={item.id} 
-			style={{
-			position: "relative",
-			height: "300px",
-			backgroundImage: `url(${item.url})`, 
-			backgroundRepeat: "no-repeat",
-			backgroundSize: "auto"}}>
-				<div style={{
-					position: "absolute",
-					top: 30,
-					left: 200,
-					color: "#fff"
-				}}>{console.log(item.url)}
-					<h1>Some Header</h1>
-				</div>
-				<div style={{
-					position: "absolute",
-					top: 100,
-					right: 500
-				}}>Some text</div>
-				<button style={{
-					position: "absolute",
-					bottom: 0,
-					right: 500}}
-				>add your basket</button>
-				</div>
-			))}
+		{forSecondCarousel}
 		</SecondCarousel>
 	</>
 	);
