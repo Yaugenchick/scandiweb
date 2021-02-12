@@ -9,6 +9,7 @@
 ![version node](https://img.shields.io/static/v1?label=<node>&message=<12.18.4>&color=brightgreen)
 ![version npm](https://img.shields.io/static/v1?label=<npm>&message=<6.14.6>&color=red)
 ![version webpack](https://img.shields.io/static/v1?label=<webpack>&message=<5.21.2>&color=blue)
+![update dependencies](https://img.shields.io/static/v1?label=<dependencies>&message=<up-to-date>&color=brightgreen)
 
 ### Descriptions
 
