@@ -1,16 +1,15 @@
 ## Infinite carousel component for e-commerce with react
 
-![minify-size](https://img.shields.io/static/v1?label=<minify-size>&message=<14.79KB>&color=brightgreen)
-![gzip-size](https://img.shields.io/static/v1?label=<gzip-size>&message=<4.9KB>&color=brightgreen)
-![dependencies react](https://img.shields.io/static/v1?label=<react>&message=<17.0.1>&color=blue)
-![dependencies react-dom](https://img.shields.io/static/v1?label=<react-dom>&message=<17.0.1>&color=blue)
-![dependencies styled-components](https://img.shields.io/static/v1?label=<styled-components>&message=<5.2.1>&color=yellow)
-![dependencies uuid](https://img.shields.io/static/v1?label=<uuid>&message=<8.3.2>&color=orange)
-![license](https://img.shields.io/static/v1?label=<license>&message=<MIT>&color=green)
-![version node](https://img.shields.io/static/v1?label=<node>&message=<12.18.4>&color=brightgreen)
-![version npm](https://img.shields.io/static/v1?label=<npm>&message=<6.14.6>&color=red)
-![version webpack](https://img.shields.io/static/v1?label=<webpack>&message=<5.21.2>&color=blue)
-![update dependencies](https://img.shields.io/static/v1?label=<dependencies>&message=<up-to-date>&color=brightgreen)
+![minified-size](https://img.shields.io/static/v1?label=minified-size&message=14.79KB&color=brightgreen)
+![gzip-size](https://img.shields.io/static/v1?label=gzip-size&message=4.9KB&color=brightgreen)
+![dependencies react](https://img.shields.io/static/v1?label=react&message=17.0.1&color=blue)
+![dependencies react-dom](https://img.shields.io/static/v1?label=react-dom&message=17.0.1&color=blue)
+![dependencies styled-components](https://img.shields.io/static/v1?label=styled-components&message=5.2.1&color=yellow)
+![dependencies uuid](https://img.shields.io/static/v1?label=uuid&message=8.3.2&color=orange)
+![version node](https://img.shields.io/static/v1?label=node&message=12.18.4&color=brightgreen)
+![version npm](https://img.shields.io/static/v1?label=npm&message=6.14.6&color=red)
+![version webpack](https://img.shields.io/static/v1?label=webpack&message=5.21.2&color=blue)
+![update dependencies](https://img.shields.io/static/v1?label=dependencies&message=up-to-date&color=brightgreen)
 
 ### Descriptions
 

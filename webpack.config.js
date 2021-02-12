@@ -18,46 +18,6 @@ const isProd = !isDev
 const filename = (ext) =>
     isDev ? `[name].${ext}` : `[name].[fullhash:10].${ext}`
 
-const plugins = () => {
-    const basePlugins = [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './index.html'),
-            favicon: './favicon/favicon.png',
-            minify: {
-                collapseWhitespace: isProd,
-            },
-        }),
-        new MiniCssExtractPlugin({
-            filename: `./css/${filename('css')}`,
-        }),
-    ]
-    if (isProd) {
-        basePlugins.push(
-            new ImageMinimizerPlugin({
-                minimizerOptions: {
-                    plugins: [
-                        ['gifsicle', { interlaced: true }],
-                        ['jpegtran', { progressive: true }],
-                        ['optipng', { optimizationLevel: 7 }],
-                        [
-                            'svgo',
-                            {
-                                plugins: [
-                                    {
-                                        removeViewBox: false,
-                                    },
-                                ],
-                            },
-                        ],
-                    ],
-                },
-            }),
-            new BundleAnalyzerPlugin({})
-        )
-    }
-    return basePlugins
-}
-
 const optimization = () => {
     const configObject = {
         splitChunks: {
@@ -85,6 +45,49 @@ const optimization = () => {
     }
     return configObject
 }
+
+const plugins = () => {
+    const basePlugins = [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './index.html'),
+            favicon: './favicon/favicon.png',
+            minify: {
+                collapseWhitespace: isProd,
+            },
+        }),
+        new MiniCssExtractPlugin({
+            filename: `./css/${filename('css')}`,
+        }),
+    ]
+    if (isProd) {
+        basePlugins.push(
+            new ImageMinimizerPlugin({
+                minimizerOptions: {
+                    plugins: [
+                        ['gifsicle', { interlaced: true }],
+                        ['jpegtran', { progressive: true, arithmetic: true }],
+                        ['optipng', { optimizationLevel: 7 }],
+                        [
+                            'svgo',
+                            {
+                                plugins: [
+                                    {
+                                        removeViewBox: false,
+                                    },
+                                ],
+                            },
+                        ],
+                    ],
+                },
+            }),
+            new BundleAnalyzerPlugin({
+                analyzerPort: 3001,
+            })
+        )
+    }
+    return basePlugins
+}
+
 module.exports = {
     mode: 'development',
     entry: ['./index.js'],
