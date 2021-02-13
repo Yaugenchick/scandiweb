@@ -1,20 +1,19 @@
-const path = require('path')
 const webpack = require('webpack')
+
+const path = require('path')
+const zlib = require('zlib')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const gifsicle = require('imagemin-gifsicle')
-const jpegtran = require('imagemin-jpegtran')
-const optipng = require('imagemin-optipng')
-const svgo = require('imagemin-svgo')
 const CompressWebpackPlugin = require('compression-webpack-plugin')
-const zlib = require('zlib')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
+
 const filename = (ext) =>
     isDev ? `[name].${ext}` : `[name].[fullhash:10].${ext}`
 
