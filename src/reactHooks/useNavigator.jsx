@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const useNavigator = () => {
+export function useNavigator () {
 
 	let effective = window.navigator.connection.effectiveType,
 		networkStatusSpeed;

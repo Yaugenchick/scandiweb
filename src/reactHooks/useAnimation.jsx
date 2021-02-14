@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const useAnimation = () => {
+export function useAnimation () {
 	
 	const [controlsForAnimation, setControlsForAnimation] = useState({next: false, prew: false, dots: false})
 	const [dotsIndex, setDotsIndex] = useState({prewIndex: 0, currentIndex: 0})
