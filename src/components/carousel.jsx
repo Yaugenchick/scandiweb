@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import Controls from './controls'
 import Dots from './dots'
 import EmbedContentContainer from './embedContent'
-import { isMobileTablet } from '../reactHooks/isMobileTablet'
 import { useData } from '../reactHooks/useData'
 import { useAvailableContent } from './../reactHooks/useAvailableContent'
 import { useAnimation } from '../reactHooks/useAnimation'
@@ -147,4 +147,15 @@ const Carousel = React.memo(({
         </>
     )
 })
+
+Carousel.propTypes = {
+    dots: PropTypes.bool,
+    controls: PropTypes.bool,
+    animationType: PropTypes.string,
+    dotTheme: PropTypes.string,
+    activeDotTheme: PropTypes.string,
+    buttonsTheme: PropTypes.string,
+    children: PropTypes.array.isRequired
+}
+
 export default Carousel
