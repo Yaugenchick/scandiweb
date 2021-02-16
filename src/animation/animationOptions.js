@@ -1,4 +1,4 @@
-class animationApi {
+class AnimationApi {
     setAnimation(animationType, controlsForAnimation, animationRef, dotsIndex) {
         if (animationRef) {
             if (/^translate/.test(animationType) && controlsForAnimation.next) {
@@ -153,4 +153,4 @@ class animationApi {
         return this.setAnimation()
     }
 }
-export default new animationApi()
+export default new AnimationApi()

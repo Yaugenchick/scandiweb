@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import animationApi from "../animation/animationOptions"
+import AnimationApi from "../animation/animationOptions"
 
 const SlideContainer = ({ data, activeIndex, controlsForAnimation, animationType, dotsIndex }) => {
 	let animationRef = useRef(null)
@@ -13,8 +13,8 @@ const SlideContainer = ({ data, activeIndex, controlsForAnimation, animationType
 			})
 			: null
 	))
-	animationApi.setAnimation(animationType, controlsForAnimation, animationRef, dotsIndex)
-	animationApi.getAnimation()
+	AnimationApi.setAnimation(animationType, controlsForAnimation, animationRef, dotsIndex)
+	AnimationApi.getAnimation()
 
 	return (
 		<>
