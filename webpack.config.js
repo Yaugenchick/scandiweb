@@ -1,28 +1,25 @@
-const webpack = require('webpack')
+const path = require('path');
+const zlib = require('zlib');
 
-const path = require('path')
-const zlib = require('zlib')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressWebpackPlugin = require('compression-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CompressWebpackPlugin = require('compression-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin
-
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
 
 const filename = (ext) =>
-    isDev ? `[name].${ext}` : `[name].[fullhash:10].${ext}`
+    isDev ? `[name].${ext}` : `[name].[fullhash:10].${ext}`;
 
 const optimization = () => {
     const configObject = {
         splitChunks: {
             chunks: 'all',
         },
-    }
+    };
     if (isProd) {
         configObject.minimizer = [
             new TerserPlugin({
@@ -40,10 +37,10 @@ const optimization = () => {
                 threshold: 10240,
                 minRatio: 0.8,
             }),
-        ]
+        ];
     }
-    return configObject
-}
+    return configObject;
+};
 
 const plugins = () => {
     const basePlugins = [
@@ -57,7 +54,7 @@ const plugins = () => {
         new MiniCssExtractPlugin({
             filename: `./css/${filename('css')}`,
         }),
-    ]
+    ];
     if (isProd) {
         basePlugins.push(
             new ImageMinimizerPlugin({
@@ -82,10 +79,10 @@ const plugins = () => {
             new BundleAnalyzerPlugin({
                 analyzerPort: 3001,
             })
-        )
+        );
     }
-    return basePlugins
-}
+    return basePlugins;
+};
 
 module.exports = {
     mode: 'development',
@@ -161,4 +158,4 @@ module.exports = {
             util: false,
         },
     },
-}
+};

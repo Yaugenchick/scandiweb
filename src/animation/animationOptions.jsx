@@ -19,7 +19,7 @@ class AnimationApi {
                         iterations: 1,
                         easing: 'ease-in-out',
                     }
-                )
+                );
             }
             if (/^translate/.test(animationType) && controlsForAnimation.prew) {
                 animationRef.current.animate(
@@ -39,7 +39,7 @@ class AnimationApi {
                         iterations: 1,
                         easing: 'ease-in-out',
                     }
-                )
+                );
             }
             if (/^scale/.test(animationType) && controlsForAnimation.next) {
                 animationRef.current.animate(
@@ -61,7 +61,7 @@ class AnimationApi {
                         iterations: 1,
                         easing: 'ease-in-out',
                     }
-                )
+                );
             }
             if (/^scale/.test(animationType) && controlsForAnimation.prew) {
                 animationRef.current.animate(
@@ -83,7 +83,7 @@ class AnimationApi {
                         iterations: 1,
                         easing: 'ease-in-out',
                     }
-                )
+                );
             }
             if (/^translate/.test(animationType) && controlsForAnimation.dots) {
                 if (dotsIndex.prewIndex < dotsIndex.currentIndex) {
@@ -104,7 +104,7 @@ class AnimationApi {
                             iterations: 1,
                             easing: 'ease-in-out',
                         }
-                    )
+                    );
                 }
                 if (dotsIndex.prewIndex > dotsIndex.currentIndex) {
                     animationRef.current.animate(
@@ -124,7 +124,7 @@ class AnimationApi {
                             iterations: 1,
                             easing: 'ease-in-out',
                         }
-                    )
+                    );
                 }
             }
             if (/^scale/.test(animationType) && controlsForAnimation.dots) {
@@ -145,12 +145,13 @@ class AnimationApi {
                         iterations: 1,
                         easing: 'ease-in-out',
                     }
-                )
+                );
             }
         }
     }
+
     getAnimation() {
-        return this.setAnimation()
+        return this.setAnimation();
     }
 }
-export default new AnimationApi()
+export default new AnimationApi();

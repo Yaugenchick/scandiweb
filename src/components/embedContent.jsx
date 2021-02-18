@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { isMobileTablet } from './../reactHooks/isMobileTablet';
+import isMobileTablet from '../reactHooks/isMobileTablet';
 import SlideContainer from './SlideContainer';
 
 const WraperEmbedContent = styled.div`
     position: relative;
-`
+`;
 
 const EmbedContentContainer = ({
     data,
@@ -15,38 +16,71 @@ const EmbedContentContainer = ({
     controlsMoveTouch,
     controlsForAnimation,
     animationType,
-    dotsIndex
+    dotsIndex,
 }) => {
+    const wraperEmbedRef = useRef();
 
-    let wraperEmbedRef = useRef()
-    
     useEffect(() => {
         if (!isMobileTablet()) {
-            return
+            return;
         } else {
-            wraperEmbedRef.current.addEventListener("onTouchStart", controlsStartTouch, false)
-            wraperEmbedRef.current.addEventListener("onTouchMove", controlsMoveTouch, false)
+            wraperEmbedRef.current.addEventListener(
+                'onTouchStart',
+                controlsStartTouch,
+                false
+            );
+            wraperEmbedRef.current.addEventListener(
+                'onTouchMove',
+                controlsMoveTouch,
+                false
+            );
         }
-        return (() => {
-            wraperEmbedRef.current.removeEventListener("onTouchStart", controlsStartTouch, false)
-            wraperEmbedRef.current.removeEventListener("onTouchMove", controlsMoveTouch, false)
-        })
-    }, [isMobileTablet()])
+        return () => {
+            // copy to variable
+            wraperEmbedRef.current.removeEventListener(
+                'onTouchStart',
+                controlsStartTouch,
+                false
+            );
+            wraperEmbedRef.current.removeEventListener(
+                'onTouchMove',
+                controlsMoveTouch,
+                false
+            );
+        };
+    }, [controlsStartTouch, controlsMoveTouch]);
 
     return (
         <WraperEmbedContent
             ref={wraperEmbedRef}
             onTouchStart={controlsStartTouch}
             onTouchMove={controlsMoveTouch}
-        >       
-                <SlideContainer
-                    data={data}
-                    activeIndex={activeIndex}
-                    controlsForAnimation={controlsForAnimation}
-                    animationType={animationType}
-                    dotsIndex={dotsIndex}
-                />
+        >
+            <SlideContainer
+                data={data}
+                activeIndex={activeIndex}
+                controlsForAnimation={controlsForAnimation}
+                animationType={animationType}
+                dotsIndex={dotsIndex}
+            />
         </WraperEmbedContent>
     );
-}
-export default EmbedContentContainer
+};
+
+EmbedContentContainer.defaultProps = {
+    data: [],
+    activeIndex: 0,
+    animationType: '',
+    dotsIndex: 0,
+    controlsForAnimation: {},
+};
+EmbedContentContainer.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object),
+    activeIndex: PropTypes.number,
+    controlsStartTouch: PropTypes.func.isRequired,
+    controlsMoveTouch: PropTypes.func.isRequired,
+    controlsForAnimation: PropTypes.objectOf(PropTypes.bool),
+    animationType: PropTypes.string,
+    dotsIndex: PropTypes.number,
+};
+export default EmbedContentContainer;
